@@ -1,91 +1,116 @@
-.login-background{
+.login-background {
+    background-color: #DBDADA;
     height: 100vh;
-    background: linear-gradient(135deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-
-    .login-container{
-        max-width: 500px;
-        min-width: 300px;
-        height: 500px;
-        width: 400px;
+    .login-container {
+        width: 350px;
+        border-radius: 10px;
         background-color: #fff;
-        border-radius: 20px;
-        margin: 0 auto;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
-  
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 
+        .login-content {
+            padding: 15px; 
 
-        .login-content{
-            padding: 20px;
-
-            .login-title{
-                font-size: 30px;
-                font-weight: 600;
+            .gach {
+                width: 100%;
+                margin: 20px 0;
+                border-bottom: 1px solid lightgray;
             }
+    
+            .text-login {
+                font-size: 2rem;
+                font-weight: 600;
+                margin-bottom: 10px;
+            }
+    
+            .login-input {
+                margin: 15px 0;
+    
+                label {
+                    margin-bottom: 5px;
+                    font-weight: 600;
+                }
 
-            .login-input{
-                margin: 12px 0px;
+                .login-password {
+                    position: relative;
+                    
+                    i {
+                        position: absolute;
+                        right: 5px;
+                        top: 10px;
+                        cursor: pointer;
+                    }
+                }
+            }
+    
+            .btn-login {
+                width: 100%;
+                font-weight: 500;
+                background-color: #0D6EFD;
+                outline: none;
                 border: none;
-                border-radius: none;
-                outline: 0;
-                border-bottom: 1px solid #999;
-                
+                border-radius: 5px;
+                color: #fff;
+                padding: 0.375rem 0.75rem;
+    
+                &:hover {
+                    background-color: #fff;
+                    color: #333;
+                    border: 1px solid #0D6EFD;
+                    transition: .5s;
+                    padding: .5s;
+                }
             }
-            .login-with{
-
-                font-weight: 600;
-            }
-
-            .social-login{
+    
+            .social-login {
+                border: 1px solid lightgray;
                 text-align: center;
-
-                .social-icon{
-                    font-size: 36px;
-                    margin: 20px 20px;
-  
+                border-radius: 5px;
+    
+                a {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;    
+                    text-decoration: none;
+                    color: #333;
+                    font-weight: 500;
+                    width: 100%;
+                    padding: 0.375rem 0.75rem;
+    
+                    i {
+                        font-size: 1.5rem;
+                        color: lightgray;
+                        margin-right: 3px;
+                    }
                 }
-                .fb {
-                    color: #4c6ef5;
-                }
+            }
 
-                .gg {
-                    color: #f73827;
+            .forgotpass {
+                text-align: center;
+                margin: 15px 0;
+                span a {
+                    text-decoration: none;
+                    font-weight: 500;
                 }
             }
 
-            .login-password{
-                position: relative;
-                .show-password {
-                    position: absolute;
-                    right   : 10px;
-                    top     : 10px;
-                    color: #777;
-                    cursor: pointer;
+            .create-account {
+                text-align: center; 
+
+                span {
+                    font-weight: 400;
+                    color: gray;
+                }
+
+                span a {
+                    text-decoration: none;
+                    font-weight: 500;
                 }
             }
-            }
-
-        
+        }
     }
-    .btn-login{
-        width: 100%;
-        margin: 12px 0px;
-        border: none;
-        color: #fff;
-        padding: 8px 0px;
-        border-radius: 25px;
-        cursor: pointer;
-        background: linear-gradient(135deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
-
-    }
-    .forgot-password{
-        float: right;
-        font-size: 12px;
-    }
+    
 }
