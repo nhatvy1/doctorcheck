@@ -7,14 +7,13 @@ import './Login.scss';
 import { FormattedMessage } from 'react-intl';
 import { handleLoginApi } from '../../services/userService';
 
-
 class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: 'hoidanit',
             password: 'withEric',
-            isShowHidePassword: false
+            isShowHidePassword: false,
+            errMessage: ''
         }
     }
 
@@ -30,8 +29,31 @@ class Login extends Component {
         })
     }
 
-    handleLogin = ()=> {
-        console.log('All state: ', this.state)
+    handleLogin = async ()=> {
+        // console.log('All state: ', this.state)
+        this.setState({
+            errMessage: ''
+        })
+        try {
+            let data = await handleLoginApi(this.state.username, this.state.password)
+            if (data && data.errCode !== 0) {
+                this.setState({
+                    errMessage: data.message
+                })
+            }
+            if (data && data.errCode === 0) {
+                this.props.userLoginSuccess(data.user)
+            }
+        } catch(e) {
+            if (e.response) {
+                if (e.response.data) {
+                    this.setState({
+                        errMessage: e.response.data.message
+                    })
+                }
+            }
+            console.log('hoidanit', e.response)
+        }
     }
 
     handleShowHidePassword = ()=> {
@@ -56,7 +78,6 @@ class Login extends Component {
                         <div className="col-12 form-group login-input">
                             <label>Username</label>
                             <input type="text" className="form-control" placeholder="Enter your name"
-                                value={this.state.username}
                                 onChange={(event)=> this.handleOnChangeUsername(event)}
                             />
                         </div>
@@ -71,6 +92,9 @@ class Login extends Component {
                                     <i className={this.state.isShowHidePassword ? 'fas fa-eye show-password': 'fas fa-eye-slash show-password'}></i>
                                 </span>
                             </div>
+                        </div>
+                        <div className="col-12 text-danger">
+                            {this.state.errMessage}
                         </div>
                         <div className="col-12">
                             <button className="btn-login"
