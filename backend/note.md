@@ -19,3 +19,5 @@
 # npm install --save bcryptjs@2.4.3
 
 # npm install --save-exact body-parser@1.9.0 dotenv@8.2.0 ejs@3.1.5 express@4.17.1
+
+# npm install --save cors@2.8.5
