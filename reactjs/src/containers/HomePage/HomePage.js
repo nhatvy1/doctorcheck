@@ -5,6 +5,9 @@ import Specialty from './Section/Specialty';
 import MedicalFacility from './Section/MedicalFacility';
 import './HomePage.scss';
 import OutstandingDoctor from './Section/OutstandingDoctor';
+import Hanbook from './Section/Hanbook';
+import About from './Section/About';
+import HomeFooter from './HomeFooter';
 class HomePage extends Component {
 
     render() {
@@ -32,7 +35,11 @@ class HomePage extends Component {
                     settings={settings}
                 />
 
-                <div style={{height: '300px'}}></div>
+                <Hanbook settings={settings}/>
+
+                <About />
+
+                <HomeFooter />
             </div>
         );
     }
